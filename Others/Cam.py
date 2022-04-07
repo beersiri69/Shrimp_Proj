@@ -47,10 +47,11 @@ class Loadcam: # load2end use around 1.2 sec
 		while time.time() < t_end:
 			_,frame = self.cap.read()
 		
-		cv2.imwrite('/home/pi/Desktop/Gtamp/Yolo_module/Snap.png',frame)
-
+		# cv2.imwrite('/home/pi/Desktop/Gtamp/Yolo_module/TSnap.png',frame)
+		cv2.imwrite('./Yolo_module/Snap.png',frame)
 		#LOGGER.info(f"Snap shot at {save}")  # newline
 
 	def Imgshow(x):
 		img = cv2.imread('Snap.png')
 		cv2.imshow('frame1',img)
+
