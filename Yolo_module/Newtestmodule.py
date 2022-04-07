@@ -68,7 +68,7 @@ def Detect(weights=ROOT / 'yolov5s.pt',  # model.pt path(s)
         update=False,  # update all models
         project=ROOT / 'Re_S',  # save results to project/name
         name='exp',  # save results to project/name
-        exist_ok=False,  # existing project/name ok, do not increment
+        exist_ok=True,  # existing project/name ok, do not increment
         line_thickness=1,  # bounding box thickness (pixels)
         hide_labels=True,  # hide labels
         hide_conf=False,  # hide confidences
@@ -118,7 +118,7 @@ def Detect(weights=ROOT / 'yolov5s.pt',  # model.pt path(s)
         dt[0] += t2 - t1
 
         # Inference
-        visualize = increment_path(save_dir / Path(path).stem, mkdir=True) if visualize else False
+        visualize = increment_path(save_dir / Path(path).stem, mkdir=False) if visualize else False
         pred = model(im, augment=augment, visualize=visualize)
         t3 = time_sync()
         dt[1] += t3 - t2
